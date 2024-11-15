@@ -2,11 +2,21 @@
 #
 # See documentation in:
 # https://docs.scrapy.org/en/latest/topics/items.html
+from datetime import date
+from typing import Optional
 
 import scrapy
+from attr import dataclass
 
 
-class JobDataScraperItem(scrapy.Item):
-    # define the fields for your item here like:
-    # name = scrapy.Field()
-    pass
+@dataclass
+class JobVacancy:
+    title: str
+    company: str
+    posted_date: date
+    employment_type: str
+    required_experience: Optional[tuple[int, Optional[int]]]
+    salary_range: Optional[tuple[Optional[float], Optional[float]]]
+    location: list[str]
+    technologies: list[str]
+    url: str
