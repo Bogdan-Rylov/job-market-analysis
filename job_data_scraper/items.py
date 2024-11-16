@@ -5,7 +5,6 @@
 from datetime import date
 from typing import Optional
 
-import scrapy
 from attr import dataclass
 
 

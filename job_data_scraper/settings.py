@@ -94,3 +94,7 @@ ROBOTSTXT_OBEY = False
 REQUEST_FINGERPRINTER_IMPLEMENTATION = "2.7"
 TWISTED_REACTOR = "twisted.internet.asyncioreactor.AsyncioSelectorReactor"
 FEED_EXPORT_ENCODING = "utf-8"
+
+# Results file name and location
+FEED_URI = "data/vacancies.csv"
+FEED_FORMAT = "csv"

@@ -114,7 +114,9 @@ class DouVacanciesSpider(scrapy.Spider):
         found_technologies = []
 
         for tech in TECHNOLOGIES:
-            if re.search(r"\b" + re.escape(tech) + r"\b", description):
+            if re.search(
+                r"\b" + re.escape(tech) + r"\b", description, re.IGNORECASE
+            ):
                 found_technologies.append(tech)
 
         return sorted(found_technologies)
@@ -126,7 +128,7 @@ class DouVacanciesSpider(scrapy.Spider):
         )
         posted_date = dateparser.parse(
             response.css(".l-vacancy .date::text").get()
-        )
+        ).date()
         employment_type = None
         required_experience = response.meta["experience"]
         salary_range = self.parse_salary(response.css(".salary::text").get())
